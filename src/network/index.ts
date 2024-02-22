@@ -13,7 +13,19 @@ export const getAllCharacters = async (): Promise<Character[]> => {
 	return mapToClass(req.data.results as ICharacter[]);
 };
 
-export const getCharacters = async (ids: string[]): Promise<Character[]> => {
+export const getCharactersByName = async (
+	name: string
+): Promise<Character[]> => {
+	const param = `?name=${name}`;
+	const url = transformEndpoint(endp.characters + param);
+	const req = await axios.get(url.toString());
+
+	return mapToClass(req.data as ICharacter[]);
+};
+
+export const getCharactersById = async (
+	ids: string[]
+): Promise<Character[]> => {
 	const param = `[${ids.join(',')}]`;
 	const url = transformEndpoint(endp.characters + param);
 	const req = await axios.get(url.toString());
