@@ -7,7 +7,7 @@ function App() {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<div className='w-screen h-screen bg-[#151515] flex items-center justify-center'>
+			<div className='w-screen h-screen bg-[#151515] flex items-center justify-center overflow-x-hidden'>
 				<Multiselect />
 			</div>
 		</QueryClientProvider>
