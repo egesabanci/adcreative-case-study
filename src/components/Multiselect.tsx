@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { getAllCharacters } from '../network';
+import { getAllCharacters, getCharacters } from '../network';
 
 const Multiselect = () => {
 	useEffect(() => {
