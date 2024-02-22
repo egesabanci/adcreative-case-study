@@ -1,3 +1,13 @@
-const CustomMultiselect = () => {};
+import { useEffect } from 'react';
+import { getAllCharacters } from '../network';
 
-export default CustomMultiselect;
+const Multiselect = () => {
+	useEffect(() => {
+		const request = async () => await getAllCharacters();
+		request();
+	}, []);
+
+	return <></>;
+};
+
+export default Multiselect;

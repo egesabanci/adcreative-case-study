@@ -1,0 +1,8 @@
+{
+	"network": {
+		"baseUrl": "https://rickandmortyapi.com/"
+	},
+	"endp": {
+		"characters": "api/character/"
+	}
+}

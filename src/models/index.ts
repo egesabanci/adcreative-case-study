@@ -1,1 +1,1 @@
-export { Character } from './Character.model';
+export { Character } from './character.model';
