@@ -6,17 +6,20 @@ import { Loader2 } from 'lucide-react';
 import Table from './Table';
 import { getAllCharacters } from '../network';
 import { useOutsideClick } from '../hooks/useClickOutside';
-import SelectItem from './SelectItem';
 import { Character } from '../models';
-import SelectedSearchItems from './SelectedSearchItems';
-import { ISelectedItem } from '../interfaces';
 
 const Multiselect = () => {
 	const [search, setSearch] = useState('');
 	const [modalOpen, setModalOpen] = useState(false);
-	const [selectedCharacters, setSelectedCharacters] = useState<ISelectedItem[]>(
-		[]
-	);
+	const [selectedCharacters, setSelectedCharacters] = useState<Character[]>([]);
+
+	const handleSelect = (item: Character) => {
+		setSelectedCharacters((prev) => [...prev, item]);
+	};
+
+	const handleUnselect = (id: string) => {
+		setSelectedCharacters((prev) => prev.filter((x) => x.character.id !== id));
+	};
 
 	const ref = useOutsideClick(() => {
 		setModalOpen(false);
@@ -34,10 +37,13 @@ const Multiselect = () => {
 			</div>
 			<div className='relative w-full h-full'>
 				<div className='relative w-full h-auto max-h-[100px] hide-scrollbar overflow-scroll overflow-x-hidden flex flex-wrap items-center justify-start bg-white rounded-lg p-[15px] gap-[10px]'>
-					<SelectedSearchItems
-						items={selectedCharacters}
-						setItems={setSelectedCharacters}
-					/>
+					{selectedCharacters &&
+						selectedCharacters.length > 0 &&
+						selectedCharacters.map((item) => (
+							<h1 onClick={() => handleUnselect(item.character.id)}>
+								{item.character.name}
+							</h1>
+						))}
 					<input
 						className='w-auto h-auto outline-none text-black'
 						placeholder='search'
@@ -52,7 +58,13 @@ const Multiselect = () => {
 						'flex-col w-full h-auto max-h-[200px] overflow-scroll hide-scrollbar bg-gray-100 mt-[10px] absolute rounded-lg shadow-2xl items-center justify-center'
 					)}>
 					{!isLoading ? (
-						data?.map((item) => <h1>{item.character.name}</h1>)
+						data
+							?.filter((x) => !selectedCharacters.includes(x))
+							.map((item) => (
+								<h1 onClick={() => handleSelect(item)}>
+									{item.character.name}
+								</h1>
+							))
 					) : (
 						<Loader2 className='animate-spin text-black' size={18} />
 					)}
