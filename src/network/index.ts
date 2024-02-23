@@ -22,7 +22,7 @@ export const getCharactersByName = async (
 	const url = transformEndpoint(endp.characters + param);
 	const req = await axios.get(url.toString());
 
-	return mapToClass(req.data as ICharacter[]);
+	return mapToClass(req.data.results as ICharacter[]);
 };
 
 export const getCharactersById = async (
