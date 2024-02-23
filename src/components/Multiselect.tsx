@@ -88,6 +88,7 @@ const Multiselect = () => {
 							: allCharactersQuery
 						).data?.map((item, index) => (
 							<SearchItem
+								search={search}
 								onClick={() => handleSelect(item)}
 								item={item}
 								key={index}
