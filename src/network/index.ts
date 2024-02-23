@@ -6,10 +6,12 @@ import { transformEndpoint, mapToClass } from '../utils';
 import { Character } from '../models';
 import { ICharacter } from '../interfaces';
 
-export const getAllCharacters = async (): Promise<Character[]> => {
-	const url = transformEndpoint(endp.characters);
-	const req = await axios.get(url.toString());
+export const getAllCharacters = async (page?: string): Promise<Character[]> => {
+	const url = transformEndpoint(
+		endp.characters + '?page=' + (page ? page : '1')
+	);
 
+	const req = await axios.get(url.toString());
 	return mapToClass(req.data.results as ICharacter[]);
 };
 
