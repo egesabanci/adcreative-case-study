@@ -1,17 +1,21 @@
 import clsx from 'clsx';
-import { Loader2 } from 'lucide-react';
+import { BadgePlus, Loader2 } from 'lucide-react';
 import { UseQueryResult } from 'react-query';
 
 import { Character } from '../models';
 import SelectedItem from './SelectedItem';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const Table = ({
 	items,
 }: {
 	items: UseQueryResult<Character[]> | undefined;
 }) => {
+	const [parent] = useAutoAnimate();
+
 	return (
 		<div
+			ref={parent}
 			className={clsx(
 				items?.data && items.data.length > 0
 					? 'justify-start'
@@ -25,9 +29,12 @@ const Table = ({
 					<SelectedItem item={item} key={index} />
 				))
 			) : (
-				<h1 className='font-bold text-gray-300'>
-					the characters you selected will appear here
-				</h1>
+				<span className='flex flex-col items-center justify-center gap-y-[10px]'>
+					<BadgePlus className='text-gray-300' size={48} />
+					<h1 className='font-bold text-gray-300'>
+						the characters you selected will appear here
+					</h1>
+				</span>
 			)}
 		</div>
 	);

@@ -11,6 +11,10 @@
 	font-family: 'Montserrat', 'monospace';
 }
 
+body {
+	overflow-x: hidden;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
 	display: none;
 }
@@ -18,4 +22,28 @@
 .hide-scrollbar {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+}
+
+.unselectable {
+	user-select: none;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
