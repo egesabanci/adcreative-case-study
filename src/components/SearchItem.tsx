@@ -16,6 +16,7 @@ const SearchItem = (props: any) => {
 			<span className='w-auto h-auto'>
 				<h1
 					className='text-lg font-regular'
+					// I know it's dangerous but I am too tired for 'find another way'
 					dangerouslySetInnerHTML={{
 						__html: character.name.replace(
 							replacePattern,

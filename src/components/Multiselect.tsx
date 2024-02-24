@@ -16,14 +16,16 @@ import { Search, Trash2 } from 'lucide-react';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const Multiselect = () => {
+	const [parent] = useAutoAnimate();
 	const [page, setPage] = useState(1);
 	const [search, setSearch] = useState('');
-	const [parent] = useAutoAnimate();
 	const [selectedCharacters, setSelectedCharacters] = useState<Character[]>([]);
 
 	const handlePagination = (action: PaginationEnum) => {
 		setPage((prev) =>
-			prev + action.valueOf() >= 1 ? prev + action.valueOf() : prev
+			1 <= prev + action.valueOf() && 42 >= prev + action.valueOf()
+				? prev + action.valueOf()
+				: prev
 		);
 	};
 
@@ -60,7 +62,7 @@ const Multiselect = () => {
 		<div className='w-full h-full min-h-screen grid grid-cols-2 p-[25px] lg:px-[50px] gap-[25px] overflow-x-hidden'>
 			<div className='w-full h-full max-h-[425px]'>
 				{/* Search  */}
-				<div className='relative w-full h-auto max-h-[100px] hide-scrollbar overflow-scroll overflow-x-hidden flex flex-wrap items-center justify-start bg-white rounded-lg p-[15px] pt-0 gap-[10px]'>
+				<div className='relative w-full h-auto max-h-[100px] overflow-scroll overflow-x-hidden flex flex-wrap items-center justify-start bg-white rounded-lg p-[15px] pt-0 gap-[10px]'>
 					<span
 						ref={parent}
 						className='sticky bg-white top-0 left-0 w-full h-auto flex items-center justify-between border-b py-[10px]'>
