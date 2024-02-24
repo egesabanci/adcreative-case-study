@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query';
+import { Search, Trash2 } from 'lucide-react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import Table from './Table';
-import { Character } from '../models';
+import Pagination from './Pagination';
+import SearchItem from './SearchItem';
+import SearchBarItem from './SearchBarItem';
+
 import {
 	getAllCharacters,
 	getCharactersById,
 	getCharactersByName,
 } from '../network';
+import { Character } from '../models';
 import { Pagination as PaginationEnum } from '../enums';
-import SearchBarItem from './SearchBarItem';
-import Pagination from './Pagination';
-import SearchItem from './SearchItem';
-import { Search, Trash2 } from 'lucide-react';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const Multiselect = () => {
 	const [parent] = useAutoAnimate();
@@ -124,6 +125,7 @@ const Multiselect = () => {
 					</>
 				</div>
 			</div>
+			{/* Selected Characters Table */}
 			<div className='w-full h-auto max-h-[500px]'>
 				<Table items={selectedCharactersQuery} />
 				{selectedCharacters && selectedCharacters.length > 0 && (

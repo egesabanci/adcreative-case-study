@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import { BadgePlus, Loader2 } from 'lucide-react';
 import { UseQueryResult } from 'react-query';
+import { BadgePlus, Loader2 } from 'lucide-react';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import { Character } from '../models';
 import SelectedItem from './SelectedItem';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 const Table = ({
 	items,
