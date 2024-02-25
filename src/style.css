@@ -571,6 +571,11 @@ video {
   margin-bottom: 5px;
 }
 
+.my-\[50px\]{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 .mb-\[5px\]{
   margin-bottom: 5px;
 }
@@ -581,6 +586,38 @@ video {
 
 .mt-\[5px\]{
   margin-top: 5px;
+}
+
+.mt-\[50x\]{
+  margin-top: 50x;
+}
+
+.mt-\[50px\]{
+  margin-top: 50px;
+}
+
+.mt-\[150px\]{
+  margin-top: 150px;
+}
+
+.mt-\[100px\]{
+  margin-top: 100px;
+}
+
+.mb-\[100px\]{
+  margin-bottom: 100px;
+}
+
+.mb-\[150px\]{
+  margin-bottom: 150px;
+}
+
+.mt-\[125px\]{
+  margin-top: 125px;
+}
+
+.mb-\[50px\]{
+  margin-bottom: 50px;
 }
 
 .flex{
@@ -649,8 +686,8 @@ video {
   animation: spin 1s linear infinite;
 }
 
-.grid-cols-2{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.grid-cols-1{
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-col{
@@ -727,6 +764,10 @@ video {
 
 .gap-y-\[10px\]{
   row-gap: 10px;
+}
+
+.gap-y-\[50px\]{
+  row-gap: 50px;
 }
 
 .overflow-scroll{
@@ -830,24 +871,9 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-red-400{
+.bg-amber-100{
   --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
-}
-
-.bg-gray-300{
-  --tw-bg-opacity: 1;
-  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-}
-
-.bg-red-100{
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
-}
-
-.bg-gray-500{
-  --tw-bg-opacity: 1;
-  background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+  background-color: rgb(254 243 199 / var(--tw-bg-opacity));
 }
 
 .p-\[15px\]{
@@ -902,6 +928,16 @@ video {
   padding-bottom: 5px;
 }
 
+.px-\[35px\]{
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.py-\[50px\]{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .pb-\[15px\]{
   padding-bottom: 15px;
 }
@@ -916,6 +952,10 @@ video {
 
 .pt-\[7\.5px\]{
   padding-top: 7.5px;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .text-2xl{
@@ -1052,8 +1092,36 @@ body {
 }
 
 @media (min-width: 1024px){
+  .lg\:my-0{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .lg\:mt-0{
+    margin-top: 0px;
+  }
+
+  .lg\:grid-cols-2{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:px-\[50px\]{
     padding-left: 50px;
     padding-right: 50px;
+  }
+
+  .lg\:px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .lg\:py-0{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .lg\:text-2xl{
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }

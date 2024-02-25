@@ -60,7 +60,7 @@ const Multiselect = () => {
 	);
 
 	return (
-		<div className='w-full h-full min-h-screen grid grid-cols-2 p-[25px] lg:px-[50px] gap-[25px] overflow-x-hidden'>
+		<div className='w-full h-auto min-h-screen grid grid-cols-1 lg:grid-cols-2 p-[25px] lg:px-[50px] gap-[25px] overflow-x-hidden'>
 			<div className='w-full h-full max-h-[425px]'>
 				{/* Search  */}
 				<div className='relative w-full h-auto max-h-[100px] overflow-scroll overflow-x-hidden flex flex-wrap items-center justify-start bg-white rounded-lg p-[15px] pt-0 gap-[10px]'>
@@ -126,7 +126,7 @@ const Multiselect = () => {
 				</div>
 			</div>
 			{/* Selected Characters Table */}
-			<div className='w-full h-auto max-h-[500px]'>
+			<div className='w-full h-auto max-h-[500px] mt-[100px] lg:mt-0'>
 				<Table items={selectedCharactersQuery} />
 				{selectedCharacters && selectedCharacters.length > 0 && (
 					<div className='w-full h-auto flex items-center justify-start mt-[5px] '>

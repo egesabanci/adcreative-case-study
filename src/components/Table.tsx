@@ -29,7 +29,7 @@ const Table = ({
 					<SelectedItem item={item} key={index} />
 				))
 			) : (
-				<span className='flex flex-col items-center justify-center gap-y-[10px]'>
+				<span className='flex flex-col items-center justify-center gap-y-[10px] px-[25px] text-center'>
 					<BadgePlus className='text-gray-300' size={48} />
 					<h1 className='font-bold text-gray-300'>
 						the characters you selected will appear here
